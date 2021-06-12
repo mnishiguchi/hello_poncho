@@ -1,5 +1,21 @@
 import Config
 
+# Configure the Phoenix web interface
+#
+# * See https://hexdocs.pm/nerves/user-interfaces.html#phoenix-web-interfaces
+
+import_config "../../hello_poncho_ui/config/config.exs"
+
+config :hello_poncho_ui, HelloPonchoUiWeb.Endpoint,
+  # Nerves root filesystem is read-only, so disable the code reloader
+  code_reloader: false,
+  http: [port: 80],
+  # Use compile-time Mix config instead of runtime environment variables
+  load_from_system_env: false,
+  # Start the server since we're running in a release instead of through `mix`
+  server: true,
+  url: [host: "nerves.local", port: 80]
+
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.

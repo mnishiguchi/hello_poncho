@@ -40,6 +40,9 @@ defmodule HelloPonchoFirmware.MixProject do
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
       {:nerves_pack, "~> 0.4.0", targets: @all_targets},
 
+      # Poncho subprojects
+      {:hello_poncho_ui, path: "../hello_poncho_ui", targets: @all_targets, env: Mix.env()},
+
       # Dependencies for specific targets
       {:nerves_system_rpi, "~> 1.13", runtime: false, targets: :rpi},
       {:nerves_system_rpi0, "~> 1.13", runtime: false, targets: :rpi0},
